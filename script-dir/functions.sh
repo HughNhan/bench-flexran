@@ -1,3 +1,7 @@
+version () { 
+    echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'; 
+}
+
 get_python_exec () {
     local py_exec
     if command -v python3 >/dev/null 2>&1; then
@@ -133,7 +137,7 @@ exec_over_ssh () {
     local nodename=$1
     local cmd=$2
     local ssh_options="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
-    local ip_addr=$(oc get node ${nodename} -o json | jq -r '.status.addresses[] | select(.type=="InternalIP") | .address')
+    local ip_addr=$(oc get node ${nodename} -o json | jq -r '.status.addresses[0] | select(.type=="InternalIP") | .address')
     local ssh_output=$(ssh ${ssh_options} core@${ip_addr} "$cmd")
     echo "${ssh_output}"
 }
