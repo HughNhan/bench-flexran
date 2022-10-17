@@ -19,7 +19,8 @@
             { "src": "%bench-dir%/autotest.py", "dest": "/usr/bin" },
             { "src": "%bench-dir%/cpu.py", "dest": "/usr/bin" },
             { "src": "%bench-dir%/log.py", "dest": "/usr/bin" },
-            { "src": "%bench-dir%/process_testfile.py", "dest": "/usr/bin" }
+            { "src": "%bench-dir%/process_testfile.py", "dest": "/usr/bin" },
+            { "src": "%bench-dir%/hn-icxsp_mu0_20mhz_4x4_hton.cfg", "dest": "/opt/flexran/bin/nr5g/gnb/testmac/icelake-sp" }
  
         ],
         "runtime": "flexran-runtime",
